@@ -16,10 +16,11 @@ import statPanel from './panel/stat'
 import tablePanel from './panel/table'
 import textPanel from './panel/text'
 import tracePanel from './panel/trace'
+import datavLogPanel from './panel/datavLog'
 
 import prometheusDs from './datasource/prometheus'
 import httpDs from './datasource/http'
-import observabilityDs from './datasource/observability'
+import datavDs from './datasource/datav'
 import jaegerDs from './datasource/jaeger'
 import lokiDs from './datasource/loki'
 import testdataDs from './datasource/testdata'
@@ -40,7 +41,7 @@ export const builtinPanelPlugins: Record<string,PanelPluginComponents> = {
     [tablePanel.settings.type]: tablePanel,
     [textPanel.settings.type]: textPanel,
     [tracePanel.settings.type]: tracePanel,
-
+    [datavLogPanel.settings.type]: datavLogPanel
 }
 
 export const builtinDatasourcePlugins: Record<string,DatasourcePluginComponents> = {
@@ -50,5 +51,5 @@ export const builtinDatasourcePlugins: Record<string,DatasourcePluginComponents>
     [lokiDs.settings.type]: lokiDs,
     [testdataDs.settings.type]: testdataDs,
     [vmDs.settings.type]: vmDs,
-    [observabilityDs.settings.type]: observabilityDs,
+    [datavDs.settings.type]: datavDs,
 }

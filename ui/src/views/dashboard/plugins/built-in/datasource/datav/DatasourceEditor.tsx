@@ -10,11 +10,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import { Input, Text } from "@chakra-ui/react"
-import FormItem from "src/components/form/Item"
 import { Datasource } from "types/datasource"
 import React from "react";
-
+import FormItem from "components/form/Item";
+import { Input, Text } from "@chakra-ui/react";
 interface Props {
     datasource: Datasource
     onChange: any
@@ -62,4 +61,3 @@ const DatasourceEditor = ({ datasource, onChange }: Props) => {
 }
 
 export default DatasourceEditor
-
