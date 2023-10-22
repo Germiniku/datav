@@ -4,7 +4,7 @@ import { DatasourcePluginComponents, PanelPluginComponents } from "types/plugin"
 
 import candlestickPanel from "./panel/candlestick"
 import clickhouseDatasrouce from "./datasource/clickhouse"
-import mysqlDatasrouce from "./datasource/mysql"
+
 export const externalPanelPlugins: Record<string,PanelPluginComponents> = {
 	[candlestickPanel.settings.type]: candlestickPanel,
 }
