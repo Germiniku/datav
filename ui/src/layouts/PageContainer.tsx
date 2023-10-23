@@ -114,7 +114,6 @@ const Container = (props: Props) => {
   ]
   config.showAlertIcon && bottomNavs.push({ title: t.alert, icon: "FaBell", baseUrl: ReserveUrls.Alerts, url: `${ReserveUrls.Alerts}`, isActive: asPath.startsWith(ReserveUrls.Alerts) })
   bottomNavs.push({ title: t1.search, icon: "FaBuromobelexperte", baseUrl: ReserveUrls.Search, url: `${ReserveUrls.Search}`, isActive: asPath.startsWith(ReserveUrls.Search) })
-
   const [isLargeScreen] = useMediaQuery(MobileBreakpoint)
 
   const paddingLeft = 8

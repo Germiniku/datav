@@ -34,9 +34,10 @@ const getTeamSubLinks = (id) => {
         { title: "datasource", url: `/cfg/team/${id}/datasources`, icon: <FaConnectdevelop /> },
         { title: "variable", url: `/cfg/team/${id}/variables`, icon: <FaTerminal /> },
         { title: "dashboard", url: `/cfg/team/${id}/dashboards`, icon: <MdOutlineDashboard /> },
+        { title: "libraryPanels", url: `/cfg/team/${id}/library-panels`, icon: <FaCog /> },
         { title: "sidemenu", url: `/cfg/team/${id}/sidemenu`, icon: <FaAlignLeft /> },
         { title: "members", url: `/cfg/team/${id}/members`, icon: <FaUserFriends /> },
-        { title: "settings", url: `/cfg/team/${id}/setting`, icon: <FaCog /> },
+        { title: "settings", url: `/cfg/team/${id}/setting`, icon: <FaCog /> },        
     ]
 }
 

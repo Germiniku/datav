@@ -21,9 +21,9 @@ server:
     
 #################################### Database ##############################
 database:
-    type: sqlite
+    type: mysql
     account: root
-    account_secret: 
+    account_secret: rootroot
     host: localhost
     port: 3306
     database: datav
@@ -92,7 +92,7 @@ sidemenu:
 selfmonitoring:
     mock_error_logs: true
         # OpenTelemetry exporter support otlp or stdout
-    otlp_exportor: otlp
+    otlp_exportor: 
     # OpenTelemetry collector endpoint eq: jaeger collector endpoint    
     otlp_endpoint: 
     

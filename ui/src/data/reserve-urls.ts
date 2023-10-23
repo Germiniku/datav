@@ -8,6 +8,7 @@ enum ReserveUrls {
     Admin = "/admin",
     D = "/d",
     Explore = "/explore",
+    LibraryPanels = "/library-panels"
 }
 
 export default ReserveUrls;

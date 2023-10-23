@@ -50,6 +50,7 @@
     "panel": "图表",
     "members": "成员",
     "sidemenu": "左侧菜单",
+    "libraryPanels": "面板库",
     "created": "创建时间",
     "updated": "更新时间",
     "role": "角色",
@@ -154,7 +155,8 @@
     "accountSetting": "个人设置",
     "adminPanel": "管理员面板",
     "currentLang": "当前语言",
-    "newItem": "新建菜单项"
+    "newItem": "新建菜单项",
+    "libraryPanels": "面板库"
   },
   "navigate": {
     "NewDashboard": "新建仪表盘",

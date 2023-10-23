@@ -25,6 +25,7 @@ import (
 	"github.com/DataObserve/datav/query/internal/cache"
 	"github.com/DataObserve/datav/query/internal/dashboard"
 	"github.com/DataObserve/datav/query/internal/datasource"
+	"github.com/DataObserve/datav/query/internal/library"
 	ot "github.com/DataObserve/datav/query/internal/opentelemetry"
 	_ "github.com/DataObserve/datav/query/internal/plugins/builtin"
 	_ "github.com/DataObserve/datav/query/internal/plugins/external"
@@ -160,6 +161,11 @@ func (s *Server) Start() error {
 		r.POST("/datasource/save", MustLogin(), datasource.SaveDatasource)
 		r.GET("/datasource/all", otelPlugin, datasource.GetDatasources)
 		r.DELETE("/datasource/:id", MustLogin(), datasource.DeleteDatasource)
+
+		// library elements
+		r.GET("/library-elements", CheckLogin(), library.GetLibraryElements)
+		r.POST("/library-elements", MustLogin(), library.AddLibraryElement)
+		r.DELETE("/library-elements/:id", MustLogin(), library.DeleteLibraryElement)
 
 		r.GET("/datasource/test", proxy.TestDatasource)
 		// proxy apis

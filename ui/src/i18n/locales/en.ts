@@ -60,6 +60,7 @@ export const commonMsg = i18n("common", {
   "members": "Member",
   "public": "Public",
   "sidemenu": "Side Menu",
+  "libraryPanels": "Library Panels",
   "created": "Created",
   "updated": "Updated",
   "role": "Role",
@@ -166,6 +167,7 @@ export const sidebarMsg = i18n("sidebar", {
     "adminPanel": "Admin Panel",
     "currentLang": "Current Lang",
     "newItem": "Add new item",
+    "libraryPanels": "Library Panels",
 })
 
 

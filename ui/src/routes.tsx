@@ -34,6 +34,7 @@ import AdminUsers from "pages/admin/Users";
 import TeamDatasources from "pages/cfg/team/[id]/Datasources";
 import TeamVariablesPage from "pages/cfg/team/[id]/Variables";
 import IframeExamplesPage from "pages/examples/Iframe";
+import LibraryPanels from "pages/cfg/team/[id]/LibraryPanels";
 
 
 const DashboardPage = loadable(() => import('src/pages/dashboard/index'));
@@ -82,6 +83,10 @@ const cfgRoutes = [
     //@ts-ignore
     element: pageContainer(teamPageContainer(<TeamSidemenuPage />)),
   },
+  {
+    path: "/cfg/team/:id/library-panels",
+    element: pageContainer(teamPageContainer(<LibraryPanels/>))
+  }
 ]
 
 const newRoutes = [

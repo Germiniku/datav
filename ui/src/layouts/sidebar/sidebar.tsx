@@ -167,7 +167,7 @@ const Sidebar = (props: Props) => {
               <NavItem asPath={asPath} url={`${ReserveUrls.New}/dashboard`} path={ReserveUrls.New} icon="FaPlus" title={t.new} miniMode={miniMode} showTooltip />
               <NavItem asPath={asPath} url={`${ReserveUrls.Config}/datasources`} path={ReserveUrls.Config} icon="FaCog" title={t.configuration} miniMode={miniMode} showTooltip />
               <NavItem asPath={asPath} url={`${ReserveUrls.Alerts}`} path={ReserveUrls.Alerts} icon="FaBell" title={t.alert} miniMode={miniMode} showTooltip />
-              <NavItem asPath={asPath} url={`${ReserveUrls.Search}`} path={ReserveUrls.Search} icon="FaSearch" title={t1.search} miniMode={miniMode} showTooltip />
+              <NavItem asPath={asPath} url={`${ReserveUrls.Search}`} path={ReserveUrls.Search} icon="FaSearch" title={t1.search} miniMode={miniMode} showTooltip />              
               <Divider />
 
 
