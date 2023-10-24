@@ -167,3 +167,15 @@ CREATE TABLE IF NOT EXISTS annotation (
 
 CREATE INDEX  annotation_npid ON annotation (namespace_id);
 CREATE UNIQUE INDEX  annotation_time_ng ON annotation (namespace_id,group_id,time);
+
+
+CREATE TABLE IF NOT EXISTS library_element (
+    id VARCHAR(40) PRIMARY KEY NOT NULL,
+    name VARCHAR(255) DEFAULT '',
+    description varchar(2048) DEFAULT '',
+    type varchar(40) DEFAULT '',
+    model MEDIUMTEXT NOT NULL,
+    owned_by INTEGER NOT NULL DEFAULT '1',
+    created DATETIME NOT NULL,
+    updated DATETIME NOT NULL
+);

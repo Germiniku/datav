@@ -151,21 +151,22 @@ export const commonMsg = i18n("common", {
   "deleteItem": params("Delete {name}"),
   "editItem": params("Edit {name}"),
   "itemName": params("{name} Name"),
+  "createLibraryPanel": "Create Library Panel",
 })
 
 export const miscMsg = i18n("misc", {
 })
 
 export const sidebarMsg = i18n("sidebar", {
-    "dashboard": "Dashboards",
-    "search": "Search",
-    "selectSidemenu": "Select Sidemenu",
-    "selectSideMenuTips": "Select a team sidemenu",
-    "themeChange": "Current theme - ",
-    "accountSetting": "User",
-    "adminPanel": "Admin Panel",
-    "currentLang": "Current Lang",
-    "newItem": "Add new item",
+  "dashboard": "Dashboards",
+  "search": "Search",
+  "selectSidemenu": "Select Sidemenu",
+  "selectSideMenuTips": "Select a team sidemenu",
+  "themeChange": "Current theme - ",
+  "accountSetting": "User",
+  "adminPanel": "Admin Panel",
+  "currentLang": "Current Lang",
+  "newItem": "Add new item",
 })
 
 
@@ -277,6 +278,7 @@ export const newMsg = i18n("new", {
   "jsonInvalid": "Meta json is not valid",
   "dsToast": "Datasource added, redirecting...",
   "testDsFailed": "Test failed",
+  "libraryPanelToast": "Library Panel added, redirecting...",
 })
 
 

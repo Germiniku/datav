@@ -56,6 +56,7 @@ import { PanelTypeGraph } from "../../plugins/built-in/panel/graph/types";
 import { DatasourceTypeTestData } from "../../plugins/built-in/datasource/testdata/types";
 import PanelDatePicker from "../../components/PanelDatePicker";
 import useEmbed from "hooks/useEmbed";
+import LibraryPanel from "./LibraryPanel";
 
 interface PanelGridProps {
     dashboard: Dashboard
@@ -154,7 +155,7 @@ interface PanelComponentProps extends PanelGridProps {
 
 export const prevQueries = new Map()
 export const prevQueryData = new Map()
-export const PanelComponent = ({ dashboard, panel, variables, onRemovePanel, onHidePanel, width, height, sync, timeRange: timeRange0 ,forceQuery}: PanelComponentProps) => {
+export const PanelComponent = ({ dashboard, panel, variables, onRemovePanel, onHidePanel, width, height, sync, timeRange: timeRange0, forceQuery }: PanelComponentProps) => {
     const toast = useToast()
     const [panelData, setPanelData] = useState<any[]>(null)
     const [queryError, setQueryError] = useState<string>()
@@ -377,12 +378,12 @@ export const PanelComponent = ({ dashboard, panel, variables, onRemovePanel, onH
 
         </Box>}
         {loading && <Box position="absolute" top="0" right="0"><Loading size="sm" /></Box>}
-        {!loading && panel.enableScopeTime && <Popover trigger="hover"> 
+        {!loading && panel.enableScopeTime && <Popover trigger="hover">
             <PopoverTrigger>
                 <Box position="absolute" top="5px" right="5px" opacity="0.5" fontSize="0.8rem" zIndex={1000} cursor="pointer"><FaRegClock /></Box>
             </PopoverTrigger>
             <PopoverContent>
-                <PopoverArrow /> 
+                <PopoverArrow />
                 <PopoverBody>
                     <PanelDatePicker id={panel.id.toString()} timeRange={panel.scopeTime} onChange={tr => {
                         panel.scopeTime = tr
@@ -390,7 +391,7 @@ export const PanelComponent = ({ dashboard, panel, variables, onRemovePanel, onH
                             type: UpdatePanelEvent,
                             data: cloneDeep(panel)
                         })
-                    }}  showIcon/>
+                    }} showIcon />
                     <Text opacity={0.7} mt="2" ml="3" fontSize="0.9rem">Panel time range</Text>
                 </PopoverBody>
             </PopoverContent>
@@ -427,6 +428,8 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
     const { isOpen, onOpen, onClose } = useDisclosure()
     const { colorMode } = useColorMode()
     const embed = useEmbed()
+    const { isOpen: libraryPanelIsOpen, onOpen: libraryPanelOenOpen, onClose: libraryPanelOnClose } = useDisclosure()
+
     return (
         <>
             <HStack className="grid-drag-handle hover-bg" height={`${PANEL_HEADER_HEIGHT - (isEmpty(title) ? 15 : 0)}px`} cursor="move" spacing="0" position={isEmpty(title) ? "absolute" : "relative"} width="100%" zIndex={1000}>
@@ -455,6 +458,7 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
                                 <MenuDivider my="1" />
                                 <MenuItem icon={<FaBug />} onClick={onOpen}>{t1.debugPanel}</MenuItem>
                                 <MenuItem icon={<FaRegEye />} onClick={() => addParamToUrl({ viewPanel: viewPanel ? null : panel.id })}>{viewPanel ? t1.exitlView : t1.viewPanel}</MenuItem>
+                                <MenuItem onClick={() => libraryPanelOenOpen()}>{t.createLibraryPanel}</MenuItem>
 
                                 {!viewPanel && <>
                                     <MenuDivider my="1" />
@@ -470,6 +474,7 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
                 {/* <Box display="none"><FaBook className="grid-drag-handle" /></Box> */}
             </HStack>
             <PanelDecoration decoration={panel.styles.decoration} />
+            {libraryPanelIsOpen && <LibraryPanel panel={panel} isOpen={libraryPanelIsOpen} onClose={libraryPanelOnClose} />}
             {isOpen && <DebugPanel dashboardId={dashboardId} panel={panel} isOpen={isOpen} onClose={onClose} data={data} />}
         </>
     )

@@ -20,7 +20,7 @@ export interface Dashboard {
     title: string
     ownedBy: number
     visibleTo: "team" | "all"
-    ownerName?:string
+    ownerName?: string
     data: DashboardData
     weight: number
     tags?: string[]
@@ -55,7 +55,7 @@ export interface DashboardData {
     annotation: {
         enable: boolean
         enableRole: Role
-        color: string 
+        color: string
         tagsFilter: string
     }
 }
@@ -89,24 +89,25 @@ export interface Panel {
     enableScopeTime?: boolean
     scopeTime?: TimeRange
     panels?: Panel[]
+    libraryPanel?: LibraryPanelRef
 }
 
 export interface ValueMappingItem {
-    type:  "value" | "range" | "null" | "regex"
+    type: "value" | "range" | "null" | "regex"
     value: any
     text: string
     color: string
 }
 
 
- 
+
 export interface OverrideItem {
-    target: string 
+    target: string
     overrides: OverrideRule[]
 }
 
 export interface OverrideRule {
-    type: string 
+    type: string
     value: any
 }
 
@@ -134,7 +135,7 @@ export interface PanelQuery {
     legend: string
     visible: boolean
     interval?: number
-    data?: {[key:string]:any}
+    data?: { [key: string]: any }
 }
 
 export interface GridPos {
@@ -161,8 +162,17 @@ export type PanelData = any
 
 export enum DashboardLayout {
     Vertical = "vertical",
-    Custom = "null" ,
-    Horizontal =  "horizontal"
+    Custom = "null",
+    Horizontal = "horizontal"
 }
 
-
+export interface LibraryPanelRef {
+    /**
+     * Library panel name
+     */
+    name: string
+    /**
+     * Library panel uid
+     */
+    uid?: string
+}

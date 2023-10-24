@@ -92,7 +92,7 @@ sidemenu:
 selfmonitoring:
     mock_error_logs: true
         # OpenTelemetry exporter support otlp or stdout
-    otlp_exportor: otlp
+    otlp_exportor: 
     # OpenTelemetry collector endpoint eq: jaeger collector endpoint    
     otlp_endpoint: 
     
