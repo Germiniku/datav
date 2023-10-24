@@ -36,6 +36,7 @@
     "@pyroscope/flamegraph": "0.21.4",
     "@react-aria/dialog": "3.3.1",
     "@react-aria/overlays": "3.10.1",
+    "@tanstack/react-table": "8.10.7",
     "@types/ol": "^7.0.0",
     "@uselessdev/datepicker": "^2.7.0",
     "antd": "5.6.4",
@@ -97,8 +98,7 @@
     "use-deep-compare-effect": "^1.8.1",
     "use-immer": "^0.9.0",
     "validator": "^13.5.2",
-    "viz.js": "1.8.1",
-    "@tanstack/react-table": "8.10.7"
+    "viz.js": "1.8.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.123",
@@ -117,6 +117,7 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^3.1.3",

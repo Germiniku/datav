@@ -72,6 +72,7 @@ export const commonMsg = i18n("common", {
   "tags": "Tags",
   "copy": "Copy",
   "clone": "Clone",
+  "createLibraryPanel": "Create Library Panel",
   "copied": "Copied",
   "share": "Share",
   "currentTimeRange": "Current time range",
@@ -279,6 +280,7 @@ export const newMsg = i18n("new", {
   "jsonInvalid": "Meta json is not valid",
   "dsToast": "Datasource added, redirecting...",
   "testDsFailed": "Test failed",
+  "libraryPanelToast": "Library Panel added, redirecting...",
 })
 
 

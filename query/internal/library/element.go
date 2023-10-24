@@ -28,7 +28,18 @@ func AddLibraryElement(c *gin.Context) {
 	req.ID = utils.GenerateShortUID()
 	req.OwnBy = u.Id
 	req.Type = req.Model.Get("type").MustString()
-	_, err = db.Conn.Exec("INSERT INTO library_element (id, name, description,type,model,owned_by,created,updated)", req.ID, req.Name, req.Description, req.Type, req.Model, req.OwnBy, time.Now(), time.Now())
+	jsonData, err := req.Model.Encode()
+	if err != nil {
+		logger.Warn("decode library element model error", "error", err)
+		c.JSON(400, common.RespError(e.ParamInvalid))
+		return
+	}
+	_, err = db.Conn.ExecContext(
+		c.Request.Context(),
+		"INSERT INTO library_element (id, name, description, type, model,owned_by,created,updated) VALUES (?,?,?,?,?,?,?,?)",
+		req.ID, req.Name, req.Description, req.Type, jsonData, req.OwnBy, time.Now(), time.Now(),
+	)
+
 	if err != nil {
 		logger.Warn("add library element error", "error", err)
 		c.JSON(http.StatusInternalServerError, common.RespInternalError())

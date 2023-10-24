@@ -11,7 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import { Dashboard, Panel, PanelProps, PanelQuery } from "types/dashboard"
-import { Box, Center, HStack, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Portal, Text, Tooltip, useColorMode, useColorModeValue, useDisclosure, useToast } from "@chakra-ui/react";
+import { Box, Center, HStack, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Modal, ModalOverlay, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverTrigger, Portal, Text, Tooltip, useColorMode, useColorModeValue, useDisclosure, useToast } from "@chakra-ui/react";
 import { FaBook, FaBug, FaEdit, FaRegClock, FaRegClone, FaRegCopy, FaRegEye, FaRegEyeSlash, FaTrashAlt } from "react-icons/fa";
 import { IoMdInformation } from "react-icons/io";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -56,6 +56,7 @@ import { PanelTypeGraph } from "../../plugins/built-in/panel/graph/types";
 import { DatasourceTypeTestData } from "../../plugins/built-in/datasource/testdata/types";
 import PanelDatePicker from "../../components/PanelDatePicker";
 import useEmbed from "hooks/useEmbed";
+import LibraryPanel from "./LibraryPanel";
 
 interface PanelGridProps {
     dashboard: Dashboard
@@ -414,6 +415,8 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
     const { isOpen, onOpen, onClose } = useDisclosure()
     const { colorMode } = useColorMode()
     const embed = useEmbed()
+    const { isOpen: libraryPanelIsOpen, onOpen: libraryPanelOenOpen, onClose: libraryPanelOnClose } = useDisclosure()
+
     return (
         <>
             <HStack className="grid-drag-handle hover-bg" height={`${PANEL_HEADER_HEIGHT - (isEmpty(title) ? 15 : 0)}px`} cursor="move" spacing="0" position={isEmpty(title) ? "absolute" : "relative"} width="100%" zIndex={1000}>
@@ -442,12 +445,12 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
                                 <MenuDivider my="1" />
                                 <MenuItem icon={<FaBug />} onClick={onOpen}>{t1.debugPanel}</MenuItem>
                                 <MenuItem icon={<FaRegEye />} onClick={() => addParamToUrl({ viewPanel: viewPanel ? null : panel.id })}>{viewPanel ? t1.exitlView : t1.viewPanel}</MenuItem>
+                                <MenuItem onClick={() => libraryPanelOenOpen()}>{t.createLibraryPanel}</MenuItem>
                                 {!viewPanel && <>
                                     <MenuDivider my="1" />
                                     <MenuItem icon={<FaRegEyeSlash />} onClick={() => onHidePanel(panel)}>{t1.hidePanel}</MenuItem>
                                     <MenuDivider my="1" />
                                     <MenuItem icon={<FaTrashAlt />} onClick={() => onRemovePanel(panel)}>{t.remove}</MenuItem>
-
                                 </>}
                             </MenuList>
                         </Portal>
@@ -456,6 +459,7 @@ const PanelHeader = ({ dashboardId, queryError, panel, onCopyPanel, onRemovePane
                 {/* <Box display="none"><FaBook className="grid-drag-handle" /></Box> */}
             </HStack>
             <PanelDecoration decoration={panel.styles.decoration} />
+            {libraryPanelIsOpen && <LibraryPanel panel={panel} isOpen={libraryPanelIsOpen} onClose={libraryPanelOnClose} />}
             {isOpen && <DebugPanel dashboardId={dashboardId} panel={panel} isOpen={isOpen} onClose={onClose} data={data} />}
         </>
     )
