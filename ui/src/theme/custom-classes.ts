@@ -4,10 +4,10 @@ import customColors from "./colors";
 export function customClasses(props) {
     return {
         ".panel-bg": {
-            bg: mode('rgba(252,254,255,1)', 'rgba(255,255,255,0.03)')(props)
+            bg: mode('rgba(252,254,255,1)', 'rgba(255,255,255,0.02)')(props)
         },
         ".panel-bg-alpha": {
-            bg: mode('rgba(251,253,254,0.3)', 'rgba(255,255,255,0.03)')(props)
+            bg: mode('rgba(251,253,254,0.3)', 'rgba(255,255,255,0.02)')(props)
         },
         ".highlight-bg": {
             background: 'brand.50',
@@ -20,7 +20,7 @@ export function customClasses(props) {
             color: mode('black', 'white')(props)
         },
         ".hover-text:hover": {
-            color: mode('brand.500', 'brand.500')(props),
+            color: mode('brand.500', 'brand.300')(props),
             opacity: 1
         },
         ".label-bg": {
@@ -85,19 +85,19 @@ export function customClasses(props) {
         },
         ".tag-bg": {
             background: mode(
-                props.theme.colors.cyan["50"],
+                'var(--chakra-colors-brand-500)',
                 "rgba(157, 236, 249, 0.16)"
             )(props),
             color: mode(
-                props.theme.colors.cyan["800"],
-                props.theme.colors.cyan["200"]
+                'var(--chakra-colors-brand-800)',
+                'var(--chakra-colors-brand-200)'
             )(props),
             borderRadius: "6px",
         },
         ".color-text": {
             color: mode(
-                props.theme.colors.cyan["600"],
-                props.theme.colors.cyan["200"]
+                'var(--chakra-colors-brand-500)',
+                'var(--chakra-colors-brand-300)'
             )(props)
         },
         ".annotation-text": {

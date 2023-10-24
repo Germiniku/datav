@@ -180,7 +180,7 @@ const DashboardSave = ({ dashboard }: Props) => {
         <>
             <Box>
 
-                <Menu placement="left">
+                <Menu placement="bottom">
                     <Tooltip label={t1.saveDash}>
                         <MenuButton as={IconButton} variant="ghost" sx={{
                             span: {
@@ -192,8 +192,8 @@ const DashboardSave = ({ dashboard }: Props) => {
                         </MenuButton>
                     </Tooltip>
                     <MenuList>
-                        <MenuItem onClick={onSaveOpen}>{t.save}</MenuItem>
-                        <MenuItem onClick={onViewHistory}>{t1.viewHistory}</MenuItem>
+                        <MenuItem fontSize={"0.9rem"} onClick={onSaveOpen}>{t.save}</MenuItem>
+                        <MenuItem fontSize={"0.9rem"}  onClick={onViewHistory}>{t1.viewHistory}</MenuItem>
                     </MenuList>
                 </Menu>
 
